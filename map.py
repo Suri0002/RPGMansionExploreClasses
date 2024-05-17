@@ -1,3 +1,4 @@
+# Import
 from tabulate import tabulate
 
 
@@ -34,12 +35,33 @@ class Room:
         self.description = description
         self.option = option
 
-livingroom = Room('''You're in the living room''', "s")
+# Create each rooms as an object
+livingroom = Room('''You're in the living room''', ["s"])
 mainHall = Room('''You're standing in the main hall''', ["n", "s", "e"])
-gallery = Room('''You're in a gallery''', "n")
-office = Room('''You're in an old-style office''', "s")
-hallway = Room('''You're walking down a hallway''', ["n", "s", "e", "w"])
+gallery = Room('''You're in a gallery''', ["n"])
+office = Room('''You're in an old-style office''', ["s"])
+hallway = Room('''You're walking down a hallway, with paintings
+                hanging on both walls.''', ["n", "s", "e", "w"])
 dining = Room('''You're in a dining room''', ["n", "e"])
-bedroom = Room('''You're in a bedroom''', "s")
+bedroom = Room('''You're in a bedroom''', ["s"])
 hallway1 = Room('''You're walking in a hallway''', ["n", "s", "w"])
 kitchen = Room('''You're in a kitchen''', ["n", "w"])
+
+room = [
+    [livingroom, office, bedroom],
+    [mainHall, hallway, hallway1],
+    [gallery, dining, kitchen]
+]
+
+# Mansion map array
+map = [
+    ["living room", "office", "bedroom"],
+    ["main hall", "hallway", "hallway1"],
+    ["gallery", "dining room", "kitchen"]
+]
+
+# Functions
+def showMap():
+    map1 = Map(map)
+    map1.WriteMap()
+    map1.ReadMap()
