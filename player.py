@@ -1,5 +1,6 @@
-
+# Imports
 import sys
+
 import inventory as inv
 import map
 
@@ -10,7 +11,7 @@ class Player:
         self.x = 0
         self.inventory = []
         self.action = ["go", "quit", "map", "look", "inventory"]
-        #self.loc = map.room[self.y][self.x]
+        self.loc = map.room[self.y][self.x]
 
     def current_loc(self):
         self.loc = map.room[self.y][self.x]
@@ -57,7 +58,7 @@ class Player:
         self.room_inventory = []
         # Print item's description if it's at player's current location
         try:
-            for object in inv.items:
+            for object in inv.pets:
                 object_y = object.loc[0]
                 object_x = object.loc[1]
                 if object_y == self.y and object_x == self.x:
@@ -73,18 +74,18 @@ class Player:
                         self.inventory.append("cat1")
                         inv.cat1.keep_cat()
                         del inv.cat1.loc
-                        inv.items.remove(inv.cat1)
+                        inv.pets.remove(inv.cat1)
                     if item == inv.cat2:
                         self.inventory.append("cat2")
                         inv.cat2.keep_cat()
                         del inv.cat2.loc
-                        self.room_inventory.remove(inv.cat2)
+                        inv.pets.remove(inv.cat2)
             else:
                 print("There is nothing suspicious in the room.")
-            self.get_hint()
+                
     def get_hint(self):
         if "cat1" and "cat2" in self.inventory:
-            print(inv.hint.description)
+            inv.hint.print_description()
             self.action.append("answer")
     def answer(self):
         answer_input = input("Enter 4 numbers: ").lower()

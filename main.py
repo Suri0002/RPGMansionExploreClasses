@@ -1,6 +1,7 @@
+# Imports
 import sys
+
 import map
-#from inventory import Inventory
 from player import Player
 
 

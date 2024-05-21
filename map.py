@@ -36,16 +36,25 @@ class Room:
         self.option = option
 
 # Create each rooms as an object
-livingroom = Room("You're in the living room", ["south"])
-mainHall = Room("You're standing in the main hall", ["north", "south", "east"])
-gallery = Room("You're in a gallery", ["north"])
-office = Room("You're in an old-style office", ["south"])
-hallway = Room("You're walking down a hallway, with paintings hanging on both walls.",
+livingroom = Room("You're in the living room", 
+                  ["south"])
+mainHall = Room("You're standing in the main hall",
+                ["north", "south", "east"])
+gallery = Room("You're in a gallery",
+               ["north"])
+office = Room("You're in an old-style office",
+              ["south"])
+hallway = Room("You're walking down a hallway, with paintings " +
+               "hanging on both walls.",
                ["north", "south", "east", "west"])
-dining = Room("You're in a dining room", ["north", "east"])
-bedroom = Room("You're in a bedroom", ["south"])
-hallway1 = Room("You're walking in a hallway", ["north", "south", "west"])
-kitchen = Room("You're in a kitchen", ["north", "west"])
+dining = Room("You're in a dining room", 
+              ["north", "east"])
+bedroom = Room("You're in a bedroom", 
+               ["south"])
+hallway1 = Room("You're walking in a hallway",
+                ["north", "south", "west"])
+kitchen = Room("You're in a kitchen", 
+               ["north", "west"])
 
 room = [
     [livingroom, office, bedroom],
