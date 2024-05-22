@@ -1,3 +1,13 @@
+######################################################################
+# Title: RPG_Mansion Explore
+# Class: CS 30
+# Assignment: OOP: RPG - Classes
+# Coder: Suri Ho
+# Version: 4.0
+######################################################################
+'''
+'''
+######################################################################
 # Import
 import random
 
@@ -15,6 +25,8 @@ class Cat(Item):
     def keep_cat(self):
         print("You caught the cat.")
 
+# Function
+
 
 def choose_loc():
     ''' The function randomly choose a y-position
@@ -25,6 +37,7 @@ def choose_loc():
     location = [yloc, xloc]
     return location
 
+
 # Create pets object
 cat1 = Cat("You've found a black cat", choose_loc())
 cat2 = Cat("You've found a black cat", choose_loc())
@@ -34,4 +47,5 @@ pets = [cat1, cat2]
 hint = Item("Two people walk in the night, whispering a story." +
             " The Queen is free and leaves behind her roses." + 
             " The King is trapped in his throne. And the Knight" +
-            " keeps crossing the forest but finds nothing.")
+            " keeps crossing the forest but finds nothing."
+           )

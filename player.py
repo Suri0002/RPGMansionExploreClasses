@@ -1,3 +1,13 @@
+######################################################################
+# Title: RPG_Mansion Explore
+# Class: CS 30
+# Assignment: OOP: RPG - Classes
+# Coder: Suri Ho
+# Version: 4.0
+######################################################################
+'''
+'''
+######################################################################
 # Imports
 import sys
 
@@ -73,12 +83,10 @@ class Player:
                     if item == inv.cat1:
                         self.inventory.append("cat1")
                         inv.cat1.keep_cat()
-                        del inv.cat1.loc
                         inv.pets.remove(inv.cat1)
                     if item == inv.cat2:
                         self.inventory.append("cat2")
                         inv.cat2.keep_cat()
-                        del inv.cat2.loc
                         inv.pets.remove(inv.cat2)
             else:
                 print("There is nothing suspicious in the room.")

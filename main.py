@@ -1,13 +1,26 @@
+######################################################################
+# Title: RPG_Mansion Explore
+# Class: CS 30
+# Assignment: RPG - Inventory
+# Coder: Suri Ho
+# Version: 3.0
+######################################################################
+''' Player can choose quit to stop.
+'''
+######################################################################
 # Imports
 import sys
 
-import map
+from map import showMap
+from message import instruction
 from player import Player
+
+# Function
 
 
 def main_menu():
+    instruction()
     player = Player()
-    #inventory = Inventory()
     while True:
         player.current_loc()
         player.print_action()
@@ -17,7 +30,7 @@ def main_menu():
         if action_input == "go":
             player.move()
         if action_input == "map":
-            map.showMap()
+            showMap()
         if action_input == "look":
             player.inspect_Room()
         if action_input == "inventory":

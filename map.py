@@ -1,3 +1,13 @@
+######################################################################
+# Title: RPG_Mansion Explore
+# Class: CS 30
+# Assignment: OOP: RPG - Classes
+# Coder: Suri Ho
+# Version: 4.0
+######################################################################
+'''
+'''
+######################################################################
 # Import
 from tabulate import tabulate
 
@@ -69,8 +79,13 @@ map = [
     ["gallery", "dining room", "kitchen"]
 ]
 
+# Create object
+map1 = Map(map)
+
 # Functions
+
+
 def showMap():
-    map1 = Map(map)
+    ''' The function call its methods to write and read map'''
     map1.WriteMap()
     map1.ReadMap()
