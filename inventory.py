@@ -41,11 +41,12 @@ def choose_loc():
 # Create pets object
 cat1 = Cat("You've found a black cat", choose_loc())
 cat2 = Cat("You've found a black cat", choose_loc())
-pets = [cat1, cat2]
+cat3 = Cat("You've found a black cat", choose_loc())
+pets = [cat1, cat2, cat3]
 
 # Create a hint object
 hint = Item("Two people walk in the night, whispering a story." +
             " The Queen is free and leaves behind her roses." + 
             " The King is trapped in his throne. And the Knight" +
-            " keeps crossing the forest but finds nothing."
+            " keeps crossing the forest but finds nothing.\n"
            )

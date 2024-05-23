@@ -13,6 +13,7 @@ import sys
 
 import inventory as inv
 import map
+import message as mes
 
 
 class Player:
@@ -34,22 +35,24 @@ class Player:
         print("Direction option(s): ")
         for option in self.loc.option:
             print(f"* {option}")
-        # Get player's input for a direction
-        way = input("Which direction do you want to go? ").lower()
-        if way == "quit":
-            sys.exit("Thanks for playing.")
-        else:
-            if way in self.loc.option:
-                if way == "north":
-                    self.y -= 1
-                elif way == "south":
-                    self.y += 1
-                elif way == "east":
-                    self.x += 1
-                elif way == "west":
-                    self.x -= 1
+        while True:
+            # Get player's input for a direction
+            way = input("Which direction do you want to go? ").lower()
+            if way == "quit":
+                sys.exit("Thanks for playing.")
             else:
-                print("You can't go that way." + "\n")
+                if way in self.loc.option:
+                    if way == "north":
+                        self.y -= 1
+                    elif way == "south":
+                        self.y += 1
+                    elif way == "east":
+                        self.x += 1
+                    elif way == "west":
+                        self.x -= 1
+                    break
+                else:
+                    print("You can't go that way." + "\n")
                 
     def view_inventory(self):
         if self.inventory:
@@ -88,19 +91,25 @@ class Player:
                         self.inventory.append("cat2")
                         inv.cat2.keep_cat()
                         inv.pets.remove(inv.cat2)
+                        self.get_hint()
+                    if item == inv.cat3:
+                        self.inventory.append("cat3")
+                        inv.cat3.keep_cat()
+                        inv.pets.remove(inv.cat3)
             else:
                 print("There is nothing suspicious in the room.")
-                
     def get_hint(self):
-        if "cat1" and "cat2" in self.inventory:
-            inv.hint.print_description()
-            self.action.append("answer")
+        self.inventory.append("hint")
+        mes.message4.print_description()
+        self.action.append("answer")
+    def hint(self):
+        inv.hint.print_description()
     def answer(self):
         answer_input = input("Enter 4 numbers: ").lower()
         if answer_input == "quit":
             sys.exit("Thank you for playing!")
-        if answer_input == "0, 9, 0, 3":
+        if answer_input == "0903":
             print("Congrats you opened the box.")
             sys.exit("Thank you for playing!")
         else:
-            print("That's not the answer.")
+            print("You can't open the box. Try again!")

@@ -18,13 +18,16 @@ class Message(Item):
 
 # Create message objects
 message1 = Message("You visit your grandma and receive a mystery box" +
-                   " from her, but there's a four-number lock on it."
+                   " from her, with a four-digit lock on it."
                   )
-message2 = Message("Her cats have kept the hint papers, so help her"+
-                   " find the cats and get the hint to open the box."
+message2 = Message("One of her cats has kept the hint paper, so help"+
+                   " her find the cat and get the hint to open the box."
                   )
 message3 = Message("You can type 'quit' to exit the game at any "+
                    "point.\n"
+                  )
+message4 = Message("You've found the right cat. Hint is now in your"+
+                   " inventory. Type hint to see it!\n"
                   )
 
 # Function

@@ -27,16 +27,20 @@ def main_menu():
         action_input = input("What do you want to do? ").lower()
         if action_input == "quit":
             sys.exit("Thank you for playing!")
-        if action_input == "go":
+        elif action_input == "go":
             player.move()
-        if action_input == "map":
+        elif action_input == "map":
             showMap()
-        if action_input == "look":
+        elif action_input == "look":
             player.inspect_Room()
-        if action_input == "inventory":
+        elif action_input == "inventory":
             player.view_inventory()
-        if action_input == "answer":
+        elif "answer" in player.action and action_input == "answer":
             player.answer()
+        elif "hint" in player.inventory and action_input == "hint":
+            player.hint()
+        else:
+            print("Invalid action!\n")
 
 
 main_menu()
