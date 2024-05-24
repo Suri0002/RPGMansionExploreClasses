@@ -11,7 +11,7 @@
 # Imports
 import sys
 
-from map import showMap
+import map
 from message import instruction
 from player import Player
 
@@ -19,7 +19,8 @@ from player import Player
 
 
 def main_menu():
-    instruction()
+    for mess in instruction:
+        mess.print_description()
     player = Player()
     while True:
         player.current_loc()
@@ -30,7 +31,7 @@ def main_menu():
         elif action_input == "go":
             player.move()
         elif action_input == "map":
-            showMap()
+            map.map1.ShowMap()
         elif action_input == "look":
             player.inspect_Room()
         elif action_input == "inventory":

@@ -30,11 +30,5 @@ message4 = Message("You've found the right cat. Hint is now in your"+
                    " inventory. Type hint to see it!\n"
                   )
 
-# Function
-
-
-def instruction():
-    ''' The function print messages to the console.'''
-    message1.print_description()
-    message2.print_description()
-    message3.print_description()
+# Create a list of messages 
+instruction = [message1, message2, message3]

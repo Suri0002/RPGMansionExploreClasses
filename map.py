@@ -39,6 +39,12 @@ class Map:
             print("Here is the map of this mansion!")
         finally:
             print("Let's explore!!" + "\n")
+    def ShowMap(self):
+        ''' The function calls other functions to write and
+        read the map
+        '''
+        self.WriteMap()
+        self.ReadMap()
 
 class Room:
     def __init__(self, description, option):
@@ -66,6 +72,7 @@ hallway1 = Room("You're walking in a hallway",
 kitchen = Room("You're in a kitchen", 
                ["north", "west"])
 
+# Mansion rooms array
 room = [
     [livingroom, office, bedroom],
     [mainHall, hallway, hallway1],
@@ -79,13 +86,5 @@ map = [
     ["gallery", "dining room", "kitchen"]
 ]
 
-# Create object
+# Create a map object
 map1 = Map(map)
-
-# Functions
-
-
-def showMap():
-    ''' The function call its methods to write and read map'''
-    map1.WriteMap()
-    map1.ReadMap()

@@ -25,17 +25,21 @@ class Player:
         self.loc = map.room[self.y][self.x]
 
     def current_loc(self):
+        ''' The function updates player's location and print
+        the current room's description
+        '''
         self.loc = map.room[self.y][self.x]
         print(self.loc.description)
     def print_action(self):
+        ''' The function prints action option to the console'''
         for action in self.action:
-            print(f"-{action}")
-            
+            print(f"-{action}")            
     def move(self):
-        print("Direction option(s): ")
-        for option in self.loc.option:
-            print(f"* {option}")
+        ''' The function takes player'''
         while True:
+            print("Direction option(s): ")
+            for option in self.loc.option:
+                print(f"* {option}")
             # Get player's input for a direction
             way = input("Which direction do you want to go? ").lower()
             if way == "quit":
@@ -68,7 +72,7 @@ class Player:
         is no interactive piece, a message will be printed.
         '''
         object_found = False
-        self.room_inventory = []
+        room_inventory = []
         # Print item's description if it's at player's current location
         try:
             for object in inv.pets:
@@ -77,27 +81,23 @@ class Player:
                 if object_y == self.y and object_x == self.x:
                     print(object.description)
                     object_found = True
-                    self.room_inventory.append(object)
+                    room_inventory.append(object)
         except:
             print("You find nothing here.")
         else:
             if object_found is True:
-                for item in self.room_inventory:
-                    if item == inv.cat1:
-                        self.inventory.append("cat1")
-                        inv.cat1.keep_cat()
-                        inv.pets.remove(inv.cat1)
+                for item in room_inventory:
+                    if item == inv.cat1 or item == inv.cat3:
+                        self.inventory.append("cat")
+                        item.keep_cat()
+                        inv.pets.remove(item)
                     if item == inv.cat2:
-                        self.inventory.append("cat2")
+                        self.inventory.append("cat")
                         inv.cat2.keep_cat()
                         inv.pets.remove(inv.cat2)
                         self.get_hint()
-                    if item == inv.cat3:
-                        self.inventory.append("cat3")
-                        inv.cat3.keep_cat()
-                        inv.pets.remove(inv.cat3)
             else:
-                print("There is nothing suspicious in the room.")
+                print("There is nothing suspicious in the room.\n")
     def get_hint(self):
         self.inventory.append("hint")
         mes.message4.print_description()
