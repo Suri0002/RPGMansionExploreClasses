@@ -46,6 +46,7 @@ class Map:
         self.WriteMap()
         self.ReadMap()
 
+# Create class for rooms
 class Room:
     def __init__(self, description, option):
         self.description = description

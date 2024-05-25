@@ -10,20 +10,35 @@
 ######################################################################
 # Import
 import random
+import sys
 
 
+# Create parent class
 class Item:
     def __init__(self, description):
         self.description = description
     def print_description(self):
+        ''' The function print out item's description. '''
         print(self.description)
+    def answer(self):
+        ''' The function takes user input for answer. Player win
+        if they answer correctly and the program will stop. If 
+        player type quit, the program will stop.
+        '''
+        answer_input = input("Enter 4 numbers: ").lower()
+        if answer_input == "quit":
+            sys.exit("Thank you for playing!")
+        if answer_input == "0903":
+            print("Congrats you opened the box.")
+            sys.exit("Thank you for playing!")
+        else:
+            print("You can't open the box. Try again!")
 
+# Create a child class from Item
 class Cat(Item):
     def __init__(self, description, location):
         Item.__init__(self, description)
-        self.loc = location
-    def keep_cat(self):
-        print("You caught the cat.")
+        self.loc = location       
 
 # Function
 

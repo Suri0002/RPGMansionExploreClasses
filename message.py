@@ -12,6 +12,7 @@
 from inventory import Item
 
 
+# Create a child class from Item
 class Message(Item):
     def __init__(self, description):
         Item.__init__(self, description)

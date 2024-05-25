@@ -11,17 +11,18 @@
 # Imports
 import sys
 
+import inventory as inv
 import map
 from message import instruction
-from player import Player
+from player import player
 
 # Function
 
 
 def main_menu():
+    # Print the instructions
     for mess in instruction:
         mess.print_description()
-    player = Player()
     while True:
         player.current_loc()
         player.print_action()
@@ -37,9 +38,9 @@ def main_menu():
         elif action_input == "inventory":
             player.view_inventory()
         elif "answer" in player.action and action_input == "answer":
-            player.answer()
+            inv.hint.answer()
         elif "hint" in player.inventory and action_input == "hint":
-            player.hint()
+            inv.hint.print_description()
         else:
             print("Invalid action!\n")
 

@@ -35,37 +35,58 @@ class Player:
         for action in self.action:
             print(f"-{action}")            
     def move(self):
-        ''' The function takes player'''
-        while True:
-            print("Direction option(s): ")
-            for option in self.loc.option:
-                print(f"* {option}")
-            # Get player's input for a direction
-            way = input("Which direction do you want to go? ").lower()
-            if way == "quit":
-                sys.exit("Thanks for playing.")
+        ''' The function takes player input for a direction and update
+        player's y and x location. If player choose quit, the program 
+        will stop.
+        '''
+        print("Direction option(s): ")
+        for option in self.loc.option:
+            print(f"* {option}")
+        # Get player's input for a direction
+        way = input("Which direction do you want to go? ").lower()
+        if way == "quit":
+            sys.exit("Thanks for playing.")
+        else:
+            if way in self.loc.option:
+                if way == "north":
+                    self.y -= 1
+                elif way == "south":
+                    self.y += 1
+                elif way == "east":
+                    self.x += 1
+                elif way == "west":
+                    self.x -= 1
             else:
-                if way in self.loc.option:
-                    if way == "north":
-                        self.y -= 1
-                    elif way == "south":
-                        self.y += 1
-                    elif way == "east":
-                        self.x += 1
-                    elif way == "west":
-                        self.x -= 1
-                    break
-                else:
-                    print("You can't go that way." + "\n")
-                
+                print("You can't go that way." + "\n")              
     def view_inventory(self):
+        ''' The function will trigger when player choose 'inventory'.
+        It will print out items in inventory if player has any in there.
+        '''
         if self.inventory:
             print("Inventory: ")
             for item in self.inventory:
                 print(f"*{item}")
         else:
             print("You have nothing in your inventory.")
-           
+    def cat_action(self):
+        choosing = True
+        while choosing:
+            print("*catch")
+            print("*done")
+            cat_choice = input("Choose an action: ").lower()
+            if cat_choice == "catch":
+                self.inventory.append("cat")
+                print("You caught the cat.")
+                self.item.loc = None
+                if self.item == inv.cat2:
+                    self.get_hint()
+                choosing = False
+            elif cat_choice == "quit":
+                sys.exit("Thank you for playing!")
+            elif cat_choice == "done":
+                choosing = False
+            else:
+                print("Invalid choice. Try again.")         
     def inspect_Room(self):
         ''' The function will trigger when user choose 'look'. If there is
         an object at their location, description will be printed. If there
@@ -76,9 +97,7 @@ class Player:
         # Print item's description if it's at player's current location
         try:
             for object in inv.pets:
-                object_y = object.loc[0]
-                object_x = object.loc[1]
-                if object_y == self.y and object_x == self.x:
+                if object.loc == [self.y, self.x]:
                     print(object.description)
                     object_found = True
                     room_inventory.append(object)
@@ -86,30 +105,14 @@ class Player:
             print("You find nothing here.")
         else:
             if object_found is True:
-                for item in room_inventory:
-                    if item == inv.cat1 or item == inv.cat3:
-                        self.inventory.append("cat")
-                        item.keep_cat()
-                        inv.pets.remove(item)
-                    if item == inv.cat2:
-                        self.inventory.append("cat")
-                        inv.cat2.keep_cat()
-                        inv.pets.remove(inv.cat2)
-                        self.get_hint()
+                for self.item in room_inventory:
+                    self.cat_action()
             else:
                 print("There is nothing suspicious in the room.\n")
     def get_hint(self):
         self.inventory.append("hint")
         mes.message4.print_description()
         self.action.append("answer")
-    def hint(self):
-        inv.hint.print_description()
-    def answer(self):
-        answer_input = input("Enter 4 numbers: ").lower()
-        if answer_input == "quit":
-            sys.exit("Thank you for playing!")
-        if answer_input == "0903":
-            print("Congrats you opened the box.")
-            sys.exit("Thank you for playing!")
-        else:
-            print("You can't open the box. Try again!")
+
+# Create a player object
+player = Player()
