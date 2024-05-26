@@ -1,9 +1,9 @@
 ######################################################################
 # Title: RPG_Mansion Explore
 # Class: CS 30
-# Assignment: RPG - Inventory
+# Assignment: OOP: RPG - Classes
 # Coder: Suri Ho
-# Version: 3.0
+# Version: 4.0
 ######################################################################
 ''' Player can choose quit to stop.
 '''
@@ -24,6 +24,7 @@ def main_menu():
     for mess in instruction:
         mess.print_description()
     while True:
+        print("\n")
         player.current_loc()
         player.print_action()
         action_input = input("What do you want to do? ").lower()
@@ -34,7 +35,7 @@ def main_menu():
         elif action_input == "map":
             map.map1.ShowMap()
         elif action_input == "look":
-            player.inspect_Room()
+            inv.inventory.inspect_Room()
         elif action_input == "inventory":
             inv.inventory.view_inventory()
         elif action_input == "answer":

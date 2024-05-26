@@ -25,10 +25,7 @@ message2 = Message("One of her cats has kept the hint paper, so help her"+
                    " find the cat and get the hint to open the box.", None
                   )
 message3 = Message("You can type 'quit' to exit the game at any "+
-                   "point.\n", None
-                  )
-message4 = Message("You've found the right cat. Hint is now in your"+
-                   " inventory. Type hint to see it!\n", None
+                   "point.", None
                   )
 
 # Create a list of messages 

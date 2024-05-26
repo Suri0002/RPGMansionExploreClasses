@@ -38,7 +38,7 @@ class Map:
         else:
             print("Here is the map of this mansion!")
         finally:
-            print("Let's explore!!" + "\n")
+            print("Let's explore!!")
     def ShowMap(self):
         ''' The function calls other functions to write and
         read the map

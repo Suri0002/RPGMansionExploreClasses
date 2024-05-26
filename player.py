@@ -11,16 +11,13 @@
 # Imports
 import sys
 
-import inventory as inv
 import map
-import message as mes
 
 
 class Player:
     def __init__(self):
         self.y = 1
         self.x = 0
-        #self.inventory = []
         self.action = ["go", "quit", "map", "look", "inventory", "answer"]
         self.loc = map.room[self.y][self.x]
 
@@ -30,7 +27,6 @@ class Player:
         '''
         self.loc = map.room[self.y][self.x]
         print(self.loc.description)
-        return self.y, self.x
     def print_action(self):
         ''' The function prints action option to the console'''
         for action in self.action:
@@ -58,49 +54,10 @@ class Player:
                 elif way == "west":
                     self.x -= 1
             else:
-                print("You can't go that way." + "\n")  
-    def cat_action(self):
-        choosing = True
-        while choosing:
-            print("*catch")
-            print("*done")
-            cat_choice = input("Choose an action: ").lower()
-            if cat_choice == "catch":
-                inv.inventory.inventory.append("cat")
-                print("You caught the cat.")
-                self.item.loc = None
-                if self.item == inv.cat2:
-                    inv.inventory.inventory.append("hint")
-                    mes.message4.print_description()
-                choosing = False
-            elif cat_choice == "quit":
-                sys.exit("Thank you for playing!")
-            elif cat_choice == "done":
-                choosing = False
-            else:
-                print("Invalid choice. Try again.")  
-    def inspect_Room(self):
-        ''' The function will trigger when user choose 'look'. If there is
-        an object at their location, description will be printed. If there
-        is no interactive piece, a message will be printed.
-        '''
-        object_found = False
-        room_inventory = []
-        # Print item's description if it's at player's current location
-        try:
-            for object in inv.pets:
-                if object.loc == [self.y, self.x]:
-                    print(object.description)
-                    object_found = True
-                    room_inventory.append(object)
-        except:
-            print("You find nothing here.")
-        else:
-            if object_found is True:
-                for self.item in room_inventory:
-                    self.cat_action()
-            else:
-                print("There is nothing suspicious in the room.\n")
+                print("You can't go that way.") 
+    def location(self):
+        ''' The function returns player's y and x location as list. '''
+        return [self.y, self.x]
 
 
 # Create a player object
