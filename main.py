@@ -36,10 +36,10 @@ def main_menu():
         elif action_input == "look":
             player.inspect_Room()
         elif action_input == "inventory":
-            player.view_inventory()
-        elif "answer" in player.action and action_input == "answer":
-            inv.hint.answer()
-        elif "hint" in player.inventory and action_input == "hint":
+            inv.inventory.view_inventory()
+        elif action_input == "answer":
+            inv.inventory.answer()
+        elif "hint" in inv.inventory.inventory and action_input == "hint":
             inv.hint.print_description()
         else:
             print("Invalid action!\n")
