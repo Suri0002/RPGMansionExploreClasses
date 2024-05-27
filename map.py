@@ -5,7 +5,8 @@
 # Coder: Suri Ho
 # Version: 4.0
 ######################################################################
-'''
+''' The program will write a map to an external file, read the file
+and then print out the map.
 '''
 ######################################################################
 # Import
@@ -28,6 +29,7 @@ class Map:
             print("Mansion map has been created.")
         finally:
             print("Good luck!")
+            
     def ReadMap(self):
         ''' The function will read a file and print out the map'''
         try:
@@ -38,7 +40,8 @@ class Map:
         else:
             print("Here is the map of this mansion!")
         finally:
-            print("Let's explore!!")
+            print("Let's explore!!" + "\n")
+            
     def ShowMap(self):
         ''' The function calls other functions to write and
         read the map
@@ -46,39 +49,37 @@ class Map:
         self.WriteMap()
         self.ReadMap()
 
+
 # Create class for rooms
 class Room:
     def __init__(self, description, option):
         self.description = description
         self.option = option
+        
 
 # Create each rooms as an object
-livingroom = Room("You're in the living room", 
+livingroom = Room("You're in the living room. There's a large "
+                  + "fireplace across the room.", 
                   ["south"])
-mainHall = Room("You're standing in the main hall",
+mainHall = Room("You're standing in the main hall.",
                 ["north", "south", "east"])
-gallery = Room("You're in a gallery",
+gallery = Room("You're in a gallery full of paintings and "
+               + "family photos.",
                ["north"])
-office = Room("You're in an old-style office",
+office = Room("You're in an old-style office with a huge bookcase.",
               ["south"])
-hallway = Room("You're walking down a hallway, with paintings " +
-               "hanging on both walls.",
+hallway = Room("You're walking down a hallway, with paintings hanging"
+               + " on both walls.",
                ["north", "south", "east", "west"])
-dining = Room("You're in a dining room", 
+dining = Room("You're in a dining room. The room has two big windows.", 
               ["north", "east"])
-bedroom = Room("You're in a bedroom", 
+bedroom = Room("You're in a cozy bedroom.", 
                ["south"])
-hallway1 = Room("You're walking in a hallway",
+hallway1 = Room("You're walking in a hallway. The light here seems to"
+                + " be broken.",
                 ["north", "south", "west"])
-kitchen = Room("You're in a kitchen", 
+kitchen = Room("You're in an organized kitchen full of cooking equipments.", 
                ["north", "west"])
-
-# Mansion rooms array
-room = [
-    [livingroom, office, bedroom],
-    [mainHall, hallway, hallway1],
-    [gallery, dining, kitchen]
-]
 
 # Mansion map array
 map = [
@@ -89,3 +90,10 @@ map = [
 
 # Create a map object
 map1 = Map(map)
+
+# Mansion rooms array
+room = [
+    [livingroom, office, bedroom],
+    [mainHall, hallway, hallway1],
+    [gallery, dining, kitchen]
+]

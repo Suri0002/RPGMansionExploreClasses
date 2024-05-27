@@ -5,7 +5,8 @@
 # Coder: Suri Ho
 # Version: 4.0
 ######################################################################
-'''
+''' The program includes player's information. Player choose the 
+direction they want to go and their location will be updated.
 '''
 ######################################################################
 # Imports
@@ -18,7 +19,7 @@ class Player:
     def __init__(self):
         self.y = 1
         self.x = 0
-        self.action = ["go", "quit", "map", "look", "inventory", "answer"]
+        self.action = ["go", "quit", "map", "look", "inventory", "open"]
         self.loc = map.room[self.y][self.x]
 
     def current_loc(self):
@@ -27,10 +28,12 @@ class Player:
         '''
         self.loc = map.room[self.y][self.x]
         print(self.loc.description)
+        
     def print_action(self):
         ''' The function prints action option to the console'''
         for action in self.action:
-            print(f"-{action}")            
+            print(f"-{action}")      
+            
     def move(self):
         ''' The function takes player input for a direction and update
         player's y and x location. If player choose quit, the program 
@@ -54,7 +57,8 @@ class Player:
                 elif way == "west":
                     self.x -= 1
             else:
-                print("You can't go that way.") 
+                print("You can't go that way.\n")
+                
     def location(self):
         ''' The function returns player's y and x location as list. '''
         return [self.y, self.x]
