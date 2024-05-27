@@ -21,16 +21,13 @@ class Message(Item):
 
 # Create message objects
 message1 = Message("You visit your grandma and receive a mystery box "
-                   + "from her, with a four-digit lock on it.", None
-                  )
+                   + "from her, with a four-digit lock on it.", None)
 message2 = Message("One of her three cats has kept the hint paper, so "
                    + "help her find the cat and get the hint to open "
-                   + "the box.", None
-                  )
+                   + "the box.", None)
 message3 = Message("Type 'open' to enter the numbers.", None)
 message4 = Message("You can type 'quit' to exit the game at any "
-                   + "point.\n", None
-                  )
+                   + "point.\n", None)
 
 # Create a list of messages 
 instruction = [message1, message2, message3, message4]

@@ -36,8 +36,8 @@ class Inventory():
         prints out a message.
         '''
         self.inventory.append("hint")
-        print("You've found the right cat. Hint is now in your"+
-                " inventory. Type hint to see it!\n")
+        print("You've found the right cat. Hint is now in your"
+              + " inventory. Type hint to see it!\n")
         
     def cat_action(self):
         ''' The function asks player to catch the cat or not. If
@@ -128,11 +128,10 @@ cat2 = Item("You've found a cat", inventory.choose_loc())
 cat3 = Item("You've found a cat", inventory.choose_loc())
 
 # Create a hint object
-hint = Item("Two people walk in the night, whispering a story.\n" +
-            "The Queen is free and leaves behind her roses.\n" + 
-            "The King is trapped in his throne.\nThe Knight" +
-            " keeps crossing the forest but finds nothing.\n", None
-           )
+hint = Item("Two people walk in the night, whispering a story.\n"
+            + "The Queen is free and leaves behind her roses.\n"
+            + "The King is trapped in his throne.\nThe Knight"
+            + " keeps crossing the forest but finds nothing.\n", None)
 
 # Create a list of cats
 pets = [cat1, cat2, cat3]
